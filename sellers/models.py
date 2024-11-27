@@ -6,27 +6,6 @@ from products.models import Product
 NULLABLE = {"blank": True, "null": True}
 
 
-class Contacts(models.Model):
-    email = models.EmailField(verbose_name="Почта", help_text="Укажите почту")
-    country = CountryField(verbose_name="Страна", help_text="Выберите страну")
-    city = models.CharField(
-        max_length=50, verbose_name="Город", help_text="Укажите город"
-    )
-    street = models.CharField(
-        max_length=50, verbose_name="Улица", help_text="Укажите улицу"
-    )
-    house_number = models.CharField(
-        max_length=50, verbose_name="Номер дома", help_text="Укажите номер дома"
-    )
-
-    def __str__(self):
-        return f"{self.email} ({self.country}, {self.city})"
-
-    class Meta:
-        verbose_name = "Контакты"
-        verbose_name_plural = "Контакты"
-
-
 class Seller(models.Model):
     # уровень в иерархии поставщиков, где 0 - это завод, 1 - следующее звено в цепочке поставок
     TRADE_NETWORK_LEVEL_CHOICES = (
@@ -61,12 +40,32 @@ class Seller(models.Model):
     name = models.CharField(
         max_length=100, verbose_name="Название", help_text="Укажите название"
     )
-    contacts = models.OneToOneField(
-        Contacts,
-        on_delete=models.SET_NULL,
-        verbose_name="Контакты",
-        help_text="Укажите контакты",
-        related_name="contacts",
+    email = models.EmailField(
+        verbose_name="Почта",
+        help_text="Укажите почту",
+        **NULLABLE,
+    )
+    country = CountryField(
+        verbose_name="Страна",
+        help_text="Выберите страну",
+        **NULLABLE,
+    )
+    city = models.CharField(
+        max_length=50,
+        verbose_name="Город",
+        help_text="Укажите город",
+        **NULLABLE,
+    )
+    street = models.CharField(
+        max_length=50,
+        verbose_name="Улица",
+        help_text="Укажите улицу",
+        **NULLABLE,
+    )
+    house_number = models.CharField(
+        max_length=50,
+        verbose_name="Номер дома",
+        help_text="Укажите номер дома",
         **NULLABLE,
     )
     products = models.ManyToManyField(
