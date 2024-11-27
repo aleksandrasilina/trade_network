@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from sellers.models import Seller
+from sellers.serializers import SellerSerializer
+
+
+class SellerViewSet(ModelViewSet):
+    """Вьюсет для модели продавца."""
+
+    queryset = Seller.objects.all()
+    serializer_class = SellerSerializer
