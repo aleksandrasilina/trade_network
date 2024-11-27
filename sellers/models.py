@@ -67,30 +67,28 @@ class Seller(models.Model):
         verbose_name="Контакты",
         help_text="Укажите контакты",
         related_name="contacts",
-        **NULLABLE
+        **NULLABLE,
     )
     products = models.ManyToManyField(
         Product,
-        on_delete=models.SET_NULL,
         verbose_name="Контакты",
         help_text="Укажите продукты",
         related_name="products",
-        **NULLABLE
+        **NULLABLE,
     )
     supplier = models.OneToOneField(
         "self",
         on_delete=models.SET_NULL,
         verbose_name="Поставщик",
         help_text="Укажите поставщика",
-        related_name="supplier",
-        **NULLABLE
+        **NULLABLE,
     )
     debt = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         verbose_name="Задолженность",
         help_text="Укажите задолженность",
-        **NULLABLE
+        **NULLABLE,
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
