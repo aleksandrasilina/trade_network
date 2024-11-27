@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+
+class Product(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название", help_text="Укажите название продукта")
+    model = models.CharField(max_length=100, verbose_name="Модель", help_text="Укажите модель продукта")
+    released_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата выхода продукта на рынок",
+                                       help_text="Укажите дату выхода продукта на рынок")
