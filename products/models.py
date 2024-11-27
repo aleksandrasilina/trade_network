@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Product(models.Model):
@@ -13,3 +14,10 @@ class Product(models.Model):
         verbose_name="Дата выхода продукта на рынок",
         help_text="Укажите дату выхода продукта на рынок",
     )
+
+    def __str__(self):
+        return f"{self.name} {self.model} (выпущен {timezone.localtime(self.released_at).strftime('%d.%m.%Y %H:%M')})"
+
+    class Meta:
+        verbose_name = "Продукт"
+        verbose_name_plural = "Продукты"
