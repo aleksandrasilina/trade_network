@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'sellers',
     'users',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
