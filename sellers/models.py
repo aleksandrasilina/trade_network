@@ -19,6 +19,13 @@ class Contacts(models.Model):
         max_length=50, verbose_name="Номер дома", help_text="Укажите номер дома"
     )
 
+    def __str__(self):
+        return f"{self.email} ({self.country}, {self.city})"
+
+    class Meta:
+        verbose_name = "Контакты"
+        verbose_name_plural = "Контакты"
+
 
 class Seller(models.Model):
     # уровень в иерархии поставщиков, где 0 - это завод, 1 - следующее звено в цепочке поставок
@@ -101,3 +108,10 @@ class Seller(models.Model):
         verbose_name="Тип продавца",
         help_text="Укажите тип продавца",
     )
+
+    def __str__(self):
+        return f"{self.seller_type} {self.name}"
+
+    class Meta:
+        verbose_name = "Продавец"
+        verbose_name_plural = "Продавцы"
