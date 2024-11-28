@@ -70,10 +70,9 @@ class Seller(models.Model):
     )
     products = models.ManyToManyField(
         Product,
-        verbose_name="Контакты",
+        verbose_name="Продукты",
         help_text="Укажите продукты",
         related_name="products",
-        **NULLABLE,
     )
     supplier = models.OneToOneField(
         "self",
