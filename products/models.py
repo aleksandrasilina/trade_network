@@ -16,7 +16,7 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return f"{self.name} {self.model} (выпущен {timezone.localtime(self.released_at).strftime('%d.%m.%Y %H:%M')})"
+        return f"{self.name} {self.model}"
 
     class Meta:
         verbose_name = "Продукт"
