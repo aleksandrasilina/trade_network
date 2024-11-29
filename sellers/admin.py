@@ -7,11 +7,19 @@ from sellers.models import Seller
 
 @admin.register(Seller)
 class SellerAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'seller_type', 'city', 'link_to_supplier', 'trade_network_level', 'debt')
-    list_filter = ('city', 'seller_type')
-    search_fields = ('name', 'email')
+    list_display = (
+        "id",
+        "name",
+        "seller_type",
+        "city",
+        "link_to_supplier",
+        "trade_network_level",
+        "debt",
+    )
+    list_filter = ("city", "seller_type")
+    search_fields = ("name", "email")
     list_display_links = ("name",)
-    list_select_related = ('supplier',)
+    list_select_related = ("supplier",)
     actions = ("clear_debt",)
 
     def link_to_supplier(self, obj):
@@ -24,9 +32,9 @@ class SellerAdmin(admin.ModelAdmin):
                 obj.supplier,
             )
 
-    link_to_supplier.short_description = 'Поставщик'
+    link_to_supplier.short_description = "Поставщик"
 
-    @admin.action(description='Обнулить задолженность')
+    @admin.action(description="Обнулить задолженность")
     def clear_debt(modeladmin, request, queryset):
         """Очищает задолженность перед поставщиком."""
 
