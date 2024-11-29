@@ -41,6 +41,14 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.email}"
 
+    def save(self):
+        """Хэширует пароль нового пользователя."""
+
+        user = super(User, self)
+        user.set_password(self.password)
+        user.save()
+        return user
+
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
