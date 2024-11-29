@@ -10,21 +10,6 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class Seller(models.Model):
-    # уровень в иерархии поставщиков, где 0 - это завод, 1 - следующее звено в цепочке поставок
-    TRADE_NETWORK_LEVEL_CHOICES = (
-        (
-            0,
-            0,
-        ),
-        (
-            1,
-            1,
-        ),
-        (
-            2,
-            2,
-        ),
-    )
     SELLER_TYPE_CHOICES = (
         (
             "factory",
@@ -96,11 +81,6 @@ class Seller(models.Model):
         auto_now_add=True,
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
-    )
-    trade_network_level = models.PositiveIntegerField(
-        choices=TRADE_NETWORK_LEVEL_CHOICES,
-        verbose_name="Уровень в торговой сети",
-        help_text="Укажите уровень в торговой сети",
     )
     seller_type = models.CharField(
         max_length=30,
