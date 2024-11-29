@@ -18,6 +18,7 @@ pillow = "^11.0.0"
 flake8 = "^7.1.1"
 django-countries = "^7.6.1"
 django-filter = "^24.3"
+djangorestframework-simplejwt = "^5.3.1"
 
 
 [build-system]
