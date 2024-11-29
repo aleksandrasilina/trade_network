@@ -35,7 +35,7 @@ class SellerAdmin(admin.ModelAdmin):
     link_to_supplier.short_description = "Поставщик"
 
     @admin.action(description="Обнулить задолженность")
-    def clear_debt(modeladmin, request, queryset):
+    def clear_debt(self, request, queryset):
         """Очищает задолженность перед поставщиком."""
 
         queryset.update(debt=0)
