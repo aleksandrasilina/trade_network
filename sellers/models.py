@@ -75,7 +75,7 @@ class Seller(models.Model):
         verbose_name="Задолженность",
         help_text="Укажите задолженность",
         default=0.00,
-        validators=[MinValueValidator(Decimal('0.00'))]
+        validators=[MinValueValidator(Decimal("0.00"))],
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
