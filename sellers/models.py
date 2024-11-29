@@ -74,7 +74,7 @@ class Seller(models.Model):
         help_text="Укажите продукты",
         related_name="products",
     )
-    supplier = models.OneToOneField(
+    supplier = models.ForeignKey(
         "self",
         on_delete=models.SET_NULL,
         verbose_name="Поставщик",
@@ -86,7 +86,7 @@ class Seller(models.Model):
         decimal_places=2,
         verbose_name="Задолженность",
         help_text="Укажите задолженность",
-        **NULLABLE,
+        default=0.00,
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -106,7 +106,7 @@ class Seller(models.Model):
     )
 
     def __str__(self):
-        return f"{self.seller_type} {self.name}"
+        return f"{self.name}"
 
     class Meta:
         verbose_name = "Продавец"
