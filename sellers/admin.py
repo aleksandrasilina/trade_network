@@ -13,7 +13,6 @@ class SellerAdmin(admin.ModelAdmin):
         "seller_type",
         "city",
         "link_to_supplier",
-        "trade_network_level",
         "debt",
     )
     list_filter = ("city", "seller_type")
@@ -24,6 +23,7 @@ class SellerAdmin(admin.ModelAdmin):
 
     def link_to_supplier(self, obj):
         """Возвращает ссылку на поставщика."""
+
         if obj.supplier is not None:
             link = reverse("admin:sellers_seller_change", args=[obj.supplier.id])
             return format_html(
