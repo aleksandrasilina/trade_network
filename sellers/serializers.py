@@ -9,6 +9,7 @@ class SellerSerializer(serializers.ModelSerializer):
 
     def get_trade_network_level(self, seller):
         """Возвращает уровень в иерархии поставщиков, где 0 - это завод, 1 - следующее звено в цепочке поставок."""
+
         if seller.supplier:
             if seller.supplier.supplier:
                 return 2
