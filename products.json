@@ -1,0 +1,47 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Телевизор",
+      "model": "2000",
+      "released_at": "2024-11-27T13:01:55.496Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Ноутбук",
+      "model": "3",
+      "released_at": "2024-11-27T13:02:54.875Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Холодильник",
+      "model": "333",
+      "released_at": "2024-11-29T09:21:43.738Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Холодильник",
+      "model": "500",
+      "released_at": "2024-11-29T09:22:05.131Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Телефон",
+      "model": "2024",
+      "released_at": "2024-12-02T10:41:17.405Z"
+    }
+  }
+]
